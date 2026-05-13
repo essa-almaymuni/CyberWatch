@@ -261,12 +261,17 @@ function buildTagsHTML(tags) {
 }
 
 /* ═══════════════════════════════════════════════════
-   MODAL
+   MODAL (محدث لدعم المقالات الكاملة)
 ═══════════════════════════════════════════════════ */
 function openModal(art) {
   const modal = dom.modal();
   const content = dom.modalContent();
   if (!modal || !content) return;
+
+  // تحويل النص الطويل إلى فقرات HTML مرتبة، أو عرض الملخص إذا كان الخبر القديم لا يحتوي على تفاصيل
+  const articleBody = art.content 
+    ? art.content.split('\n\n').map(p => `<p class="modal-summary" style="margin-bottom: 16px;">${escHtml(p)}</p>`).join('')
+    : `<p class="modal-summary">${escHtml(art.summary)}</p>`;
 
   content.innerHTML = `
     <p class="modal-category">${escHtml(art.category || 'عام')}</p>
@@ -276,7 +281,11 @@ function openModal(art) {
          alt="${escHtml(art.title)}"
          loading="lazy"
          onerror="this.style.display='none'" />
-    <p class="modal-summary">${escHtml(art.summary)}</p>
+    
+    <div class="modal-article-body">
+      ${articleBody}
+    </div>
+
     ${buildTagsHTML(art.tags)}
     <div class="modal-meta">
       <a class="modal-source-link"
