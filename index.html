@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>سايبر ووتش | أخبار الأمن السيبراني</title>
+  <meta name="description" content="منصة متخصصة في أخبار الأمن السيبراني العالمية بالعربية" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ═══ NOISE OVERLAY ═══ -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+
+  <!-- ═══ SCAN LINE EFFECT ═══ -->
+  <div class="scanline" aria-hidden="true"></div>
+
+  <!-- ═══ HEADER ═══ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo-group">
+        <div class="logo-icon" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="20,2 38,11 38,29 20,38 2,29 2,11" stroke="currentColor" stroke-width="1.5" fill="none"/>
+            <polygon points="20,8 32,14 32,26 20,32 8,26 8,14" stroke="currentColor" stroke-width="1" fill="none" opacity="0.5"/>
+            <circle cx="20" cy="20" r="4" fill="currentColor"/>
+            <line x1="20" y1="8" x2="20" y2="16" stroke="currentColor" stroke-width="1"/>
+            <line x1="20" y1="24" x2="20" y2="32" stroke="currentColor" stroke-width="1"/>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <span class="logo-main">سايبر ووتش</span>
+          <span class="logo-sub">CYBER WATCH // رادار التهديدات</span>
+        </div>
+      </div>
+
+      <nav class="header-nav" aria-label="التنقل الرئيسي">
+        <a href="#" class="nav-link active" data-filter="all">الكل</a>
+        <a href="#" class="nav-link" data-filter="ثغرات أمنية">ثغرات</a>
+        <a href="#" class="nav-link" data-filter="برامج الفدية">Ransomware</a>
+        <a href="#" class="nav-link" data-filter="تهديدات متطورة">APT</a>
+        <a href="#" class="nav-link" data-filter="تحديثات أمنية">تحديثات</a>
+      </nav>
+
+      <div class="header-status">
+        <span class="status-dot" aria-label="النظام نشط"></span>
+        <span class="status-text" id="statusText">جارٍ التحميل...</span>
+      </div>
+    </div>
+
+    <!-- TICKER -->
+    <div class="ticker-wrap" aria-label="شريط أخبار عاجلة">
+      <div class="ticker-label">⚡ عاجل</div>
+      <div class="ticker-track" id="tickerTrack">
+        <span>تحميل الأخبار...</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══ HERO STATS ═══ -->
+  <section class="stats-bar" aria-label="إحصائيات سريعة">
+    <div class="stat-item">
+      <span class="stat-number" id="totalArticles">—</span>
+      <span class="stat-label">خبر محلل</span>
+    </div>
+    <div class="stat-divider" aria-hidden="true">|</div>
+    <div class="stat-item">
+      <span class="stat-number" id="lastUpdate">—</span>
+      <span class="stat-label">آخر تحديث</span>
+    </div>
+    <div class="stat-divider" aria-hidden="true">|</div>
+    <div class="stat-item">
+      <span class="stat-number threat-level" id="threatLevel">عالٍ</span>
+      <span class="stat-label">مستوى التهديد</span>
+    </div>
+  </section>
+
+  <!-- ═══ MAIN CONTENT ═══ -->
+  <main class="site-main" id="main-content">
+
+    <!-- FEATURED ARTICLE -->
+    <section class="featured-section" aria-label="الخبر المميز">
+      <div id="featuredArticle" class="featured-placeholder">
+        <div class="skeleton-featured"></div>
+      </div>
+    </section>
+
+    <!-- SEARCH & FILTER -->
+    <div class="controls-bar">
+      <div class="search-wrap">
+        <svg class="search-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="13.5" y1="13.5" x2="18" y2="18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <input type="search" id="searchInput" class="search-input" placeholder="ابحث في الأخبار..." aria-label="بحث في الأخبار" />
+      </div>
+      <div class="sort-wrap">
+        <select id="sortSelect" class="sort-select" aria-label="ترتيب النتائج">
+          <option value="newest">الأحدث أولاً</option>
+          <option value="oldest">الأقدم أولاً</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- ARTICLES GRID -->
+    <section class="articles-section" aria-label="الأخبار">
+      <div class="grid-container" id="articlesGrid" role="list">
+        <!-- Skeleton loaders -->
+        <div class="skeleton-card" aria-hidden="true"></div>
+        <div class="skeleton-card" aria-hidden="true"></div>
+        <div class="skeleton-card" aria-hidden="true"></div>
+        <div class="skeleton-card" aria-hidden="true"></div>
+        <div class="skeleton-card" aria-hidden="true"></div>
+      </div>
+
+      <div class="empty-state hidden" id="emptyState" role="status">
+        <div class="empty-icon" aria-hidden="true">⚠</div>
+        <p>لا توجد نتائج مطابقة</p>
+      </div>
+
+      <div class="error-state hidden" id="errorState" role="alert">
+        <div class="error-icon" aria-hidden="true">✕</div>
+        <p id="errorMessage">حدث خطأ في تحميل البيانات</p>
+        <button class="retry-btn" id="retryBtn">إعادة المحاولة</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- ═══ ARTICLE MODAL ═══ -->
+  <div class="modal-overlay hidden" id="articleModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-box">
+      <button class="modal-close" id="modalClose" aria-label="إغلاق">✕</button>
+      <div class="modal-content" id="modalContent"></div>
+    </div>
+  </div>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">سايبر ووتش</span>
+        <p>منصة آلية لرصد وتحليل أخبار الأمن السيبراني العالمية · يتجدد تلقائياً</p>
+      </div>
+      <div class="footer-sources">
+        <span class="footer-label">المصادر:</span>
+        <span>The Hacker News · BleepingComputer · Krebs on Security · Dark Reading · SecurityWeek</span>
+      </div>
+      <div class="footer-tech">
+        <span class="tech-badge">JAMstack</span>
+        <span class="tech-badge">AI-Powered</span>
+        <span class="tech-badge">Zero-Touch</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

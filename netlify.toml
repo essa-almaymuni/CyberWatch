@@ -1,0 +1,38 @@
+# netlify.toml — Cyber Watch Platform Configuration
+
+[build]
+  publish = "."          # الجذر هو مجلد النشر (لا يوجد build step)
+  command = ""           # لا يوجد أمر بناء — ملفات ثابتة فقط
+
+# Security Headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://images.unsplash.com data:; connect-src 'self'"
+
+# Cache JSON for short time (auto-refreshed by automation)
+[[headers]]
+  for = "/data/news.json"
+  [headers.values]
+    Cache-Control = "public, max-age=60, stale-while-revalidate=30"
+
+# Cache static assets longer
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+# Redirects
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
