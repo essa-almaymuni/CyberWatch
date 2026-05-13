@@ -1,0 +1,71 @@
+{
+  "lastUpdated": "2026-05-13T10:30:00Z",
+  "articles": [
+    {
+      "id": "art-001",
+      "title": "ثغرة Zero-Day جديدة تستهدف بنية تحتية حيوية في أوروبا",
+      "summary": "اكتشف باحثو الأمن في شركة Mandiant ثغرة خطيرة من نوع Zero-Day تُستغل بشكل نشط في أنظمة التحكم الصناعي (SCADA) المستخدمة في محطات الطاقة الأوروبية. الثغرة تُمكّن المهاجمين من تنفيذ أكواد خبيثة عن بُعد دون أي تفاعل من المستخدم.",
+      "source": "The Hacker News",
+      "sourceUrl": "https://thehackernews.com",
+      "imageUrl": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&q=80",
+      "category": "ثغرات أمنية",
+      "publishedAt": "2026-05-13T08:15:00Z",
+      "tags": ["Zero-Day", "SCADA", "البنية التحتية"]
+    },
+    {
+      "id": "art-002",
+      "title": "مجموعة Ransomware تطالب بـ 50 مليون دولار من مستشفيات كبرى",
+      "summary": "شنّت مجموعة LockBit 4.0 هجوم Ransomware متطوراً على شبكة مستشفيات في الولايات المتحدة، مما أدى إلى تشفير بيانات أكثر من 2 مليون مريض وتعطيل أنظمة الرعاية الطارئة لساعات. الهجوم استخدم تقنية Double Extortion بتسريب عينة من البيانات كورقة ضغط.",
+      "source": "BleepingComputer",
+      "sourceUrl": "https://bleepingcomputer.com",
+      "imageUrl": "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&q=80",
+      "category": "برامج الفدية",
+      "publishedAt": "2026-05-13T06:00:00Z",
+      "tags": ["Ransomware", "LockBit", "قطاع الصحة"]
+    },
+    {
+      "id": "art-003",
+      "title": "الذكاء الاصطناعي يُستخدم لتوليد حملات Phishing بدقة غير مسبوقة",
+      "summary": "رصد فريق Threat Intelligence في CrowdStrike حملة تصيد احتيالي (Phishing) تعتمد على نماذج لغوية كبيرة (LLMs) لتوليد رسائل بريد إلكتروني مخصصة لكل هدف بدقة عالية، مما رفع معدل النجاح بنسبة 340% مقارنة بالأساليب التقليدية.",
+      "source": "Dark Reading",
+      "sourceUrl": "https://darkreading.com",
+      "imageUrl": "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=600&q=80",
+      "category": "تهديدات متطورة",
+      "publishedAt": "2026-05-12T14:30:00Z",
+      "tags": ["Phishing", "AI", "Social Engineering"]
+    },
+    {
+      "id": "art-004",
+      "title": "اكتشاف Backdoor مدمج في مكتبة مفتوحة المصدر شائعة الاستخدام",
+      "summary": "أفاد مطورون باكتشاف Backdoor متعمد داخل حزمة npm تُحمّل أكثر من 10 ملايين مرة شهرياً. الثغرة الخلفية تُرسل متغيرات البيئة (Environment Variables) بما فيها مفاتيح API والأسرار إلى خادم خارجي عند تشغيل بيئة Production.",
+      "source": "Krebs on Security",
+      "sourceUrl": "https://krebsonsecurity.com",
+      "imageUrl": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&q=80",
+      "category": "أمن سلسلة التوريد",
+      "publishedAt": "2026-05-12T10:00:00Z",
+      "tags": ["Supply Chain", "Backdoor", "npm", "Open Source"]
+    },
+    {
+      "id": "art-005",
+      "title": "FBI يُفكك شبكة Botnet ضخمة كانت تُؤجَّر لشنّ هجمات DDoS",
+      "summary": "أعلنت وزارة العدل الأمريكية عن عملية أمنية مشتركة أسفرت عن تفكيك شبكة Botnet تضم أكثر من 500,000 جهاز مخترق حول العالم، كانت تُؤجَّر كخدمة DDoS-for-Hire. اعتُقل 3 أشخاص في أوروبا الشرقية بالتنسيق مع يوروبول.",
+      "source": "SecurityWeek",
+      "sourceUrl": "https://securityweek.com",
+      "imageUrl": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80",
+      "category": "إنفاذ القانون",
+      "publishedAt": "2026-05-11T18:45:00Z",
+      "tags": ["Botnet", "DDoS", "FBI", "Europol"]
+    },
+    {
+      "id": "art-006",
+      "title": "ثغرة CVE حرجة في OpenSSL تؤثر على الملايين من الخوادم",
+      "summary": "أصدر فريق OpenSSL تحديثاً طارئاً لمعالجة ثغرة Buffer Overflow حرجة (CVSS: 9.8) تُمكّن المهاجمين من تنفيذ كود عشوائي على الخوادم المتأثرة. يُنصح جميع مديري الأنظمة بتطبيق التحديث فوراً.",
+      "source": "CERT/CC",
+      "sourceUrl": "https://kb.cert.org",
+      "imageUrl": "https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=600&q=80",
+      "category": "تحديثات أمنية",
+      "publishedAt": "2026-05-11T12:00:00Z",
+      "tags": ["OpenSSL", "CVE", "Buffer Overflow", "Patch"]
+    }
+  ]
+}
