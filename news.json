@@ -1,16 +1,4 @@
 {
-  "lastUpdated": "2026-05-17T22:00:00Z",
-  "articles": [
-    {
-      "id": "art-cpanel-29201",
-      "title": "إصدار إصلاحات لثلاث ثغرات أمنية جديدة في cPanel و WHM",
-      "summary": "أصدرت cPanel و WHM تحديثات أمنية عاجلة لمعالجة ثلاث ثغرات خطيرة تتيح تصعيد الصلاحيات وتنفيذ تعليمات برمجية عشوائية.",
-      "source": "The Hacker News",
-      "sourceUrl": "https://thehackernews.com",
-      "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj8HLwOMzo20kbZmflPvJJmY7su6wWOWgDLV-dJNx-k76m5ivbwVoCkFrnsLXkyO4PHAyLSkPXinjK71SDmWabyOcTlKb3juZgkXTzOVuMvZk6-LUFMhoJ-UGFvv0qEby7QmYcjTWn1m1L19VTKeB7CdmKvpvIP5ifniLO92ARSLjtf8rcXIbm8AFMZei-M/s1600/cpanel-3.jpg",
-      "category": "تحديثات أمنية",
-      "date": "2026-05-17",
-      "tags": ["cPanel", "WHM", "Vulnerability", "Privilege Escalation"]
-    }
-  ]
+  "lastUpdated": "2026-05-18T00:31:00Z",
+  "articles": []
 }
