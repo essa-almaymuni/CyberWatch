@@ -138,8 +138,8 @@ function applyFilters() {
 
   // Sorting
   results.sort((a, b) => {
-    const dA = new Date(a.publishedAt);
-    const dB = new Date(b.publishedAt);
+    const dA = new Date(a.publishedAt || a.date);
+    const dB = new Date(b.publishedAt || b.date);
     return state.sortOrder === 'newest' ? dB - dA : dA - dB;
   });
 
@@ -184,7 +184,7 @@ function buildFeaturedHTML(art) {
         <p class="featured-summary">${escHtml(art.summary)}</p>
         <div class="featured-meta">
           <span class="meta-source">${escHtml(art.source)}</span>
-          <span class="meta-date">${formatDate(art.publishedAt)}</span>
+          <span class="meta-date">${formatDate(art.publishedAt || art.date)}</span>
         </div>
         <button class="featured-cta">
           قراءة التفاصيل
@@ -243,7 +243,7 @@ function buildCardElement(art, delay) {
     </div>
     <div class="card-footer">
       <span class="card-source">${escHtml(art.source)}</span>
-      <span class="card-date">${formatDate(art.publishedAt)}</span>
+      <span class="card-date">${formatDate(art.publishedAt || art.date)}</span>
     </div>
   `;
 
@@ -294,7 +294,7 @@ function openModal(art) {
          rel="noopener noreferrer">
         ↗ ${escHtml(art.source)}
       </a>
-      <span class="modal-date">${formatDate(art.publishedAt, true)}</span>
+      <span class="modal-date">${formatDate(art.publishedAt || art.date, true)}</span>
     </div>
   `;
 
