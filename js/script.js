@@ -212,7 +212,9 @@ function renderGrid() {
   if (empty) empty.classList.add('hidden');
 
   // Skip first (featured) and render the rest
-  const cardsToRender = state.filteredArticles.slice(1);
+  const cardsToRender = state.filteredArticles.length === 1 
+  ? state.filteredArticles 
+  : state.filteredArticles.slice(1);
 
   cardsToRender.forEach((art, idx) => {
     const card = buildCardElement(art, idx);
