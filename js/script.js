@@ -43,9 +43,6 @@ const dom = {
   totalArticles:  () => document.getElementById('totalArticles'),
   lastUpdate:     () => document.getElementById('lastUpdate'),
   tickerTrack:    () => document.getElementById('tickerTrack'),
-  modal:          () => document.getElementById('articleModal'),
-  modalContent:   () => document.getElementById('modalContent'),
-  modalClose:     () => document.getElementById('modalClose'),
   navLinks:       () => document.querySelectorAll('.nav-link'),
 };
 
@@ -164,7 +161,7 @@ function renderFeatured() {
   container.innerHTML = buildFeaturedHTML(art);
 
   container.querySelector('.featured-card')?.addEventListener('click', () => {
-    openModal(art);
+    openArticle(art);
   });
 }
 
@@ -249,9 +246,9 @@ function buildCardElement(art, delay) {
     </div>
   `;
 
-  card.addEventListener('click', () => openModal(art));
+  card.addEventListener('click', () => openArticle(art));
   card.addEventListener('keydown', e => {
-    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(art); }
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openArticle(art); }
   });
 
   return card;
@@ -263,53 +260,10 @@ function buildTagsHTML(tags) {
 }
 
 /* ═══════════════════════════════════════════════════
-   MODAL (محدث لدعم المقالات الكاملة)
+   ARTICLE NAVIGATION
 ═══════════════════════════════════════════════════ */
-function openModal(art) {
-  const modal = dom.modal();
-  const content = dom.modalContent();
-  if (!modal || !content) return;
-
-  // تحويل النص الطويل إلى فقرات HTML مرتبة، أو عرض الملخص إذا كان الخبر القديم لا يحتوي على تفاصيل
-  const articleBody = art.content 
-    ? art.content.split('\n\n').map(p => `<p class="modal-summary" style="margin-bottom: 16px;">${escHtml(p)}</p>`).join('')
-    : `<p class="modal-summary">${escHtml(art.summary)}</p>`;
-
-  content.innerHTML = `
-    <p class="modal-category">${escHtml(art.category || 'عام')}</p>
-    <h2 class="modal-title" id="modalTitle">${escHtml(art.title)}</h2>
-    <img class="modal-image"
-         src="${escHtml(art.imageUrl || fallbackImage(art.category))}"
-         alt="${escHtml(art.title)}"
-         loading="lazy"
-         onerror="this.style.display='none'" />
-    
-    <div class="modal-article-body">
-      ${articleBody}
-    </div>
-
-    ${buildTagsHTML(art.tags)}
-    <div class="modal-meta">
-      <a class="modal-source-link"
-         href="${escHtml(art.sourceUrl || '#')}"
-         target="_blank"
-         rel="noopener noreferrer">
-        ↗ ${escHtml(art.source)}
-      </a>
-      <span class="modal-date">${formatDate(art.publishedAt || art.date, true)}</span>
-    </div>
-  `;
-
-  modal.classList.remove('hidden');
-  document.body.style.overflow = 'hidden';
-  dom.modalClose()?.focus();
-}
-
-function closeModal() {
-  const modal = dom.modal();
-  if (!modal) return;
-  modal.classList.add('hidden');
-  document.body.style.overflow = '';
+function openArticle(art) {
+  window.open(`article.html?id=${encodeURIComponent(art.id)}`, '_blank');
 }
 
 /* ═══════════════════════════════════════════════════
@@ -348,19 +302,6 @@ function bindEvents() {
       applyFilters();
     });
   }
-
-  // Modal close button
-  dom.modalClose()?.addEventListener('click', closeModal);
-
-  // Modal backdrop click
-  dom.modal()?.addEventListener('click', e => {
-    if (e.target === dom.modal()) closeModal();
-  });
-
-  // Escape key
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') closeModal();
-  });
 
   // Retry button
   dom.retryBtn()?.addEventListener('click', loadNews);
