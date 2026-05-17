@@ -10,7 +10,7 @@
    CONFIG
 ═══════════════════════════════════════════════════ */
 const CONFIG = {
-  dataUrl: 'data/news.json',        // Path to your JSON data file
+  dataUrl: 'news.json',        // Path to your JSON data file
   retryDelay: 3000,                 // ms before retry on failure
   animationStagger: 80,             // ms between card animations
   dateLocale: 'ar-SA',             // Arabic date formatting
